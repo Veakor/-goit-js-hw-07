@@ -25,16 +25,9 @@ const images = [
     },
   ];
 
-const gallery = document.querySelector('.gallery');
+  const gallery = document.querySelector('.gallery');
 
-images.forEach(image => {
-  const listItem = document.createElement('li');
-  listItem.classList.add('gallery-item');
+const html = images.map(image => `<li class="gallery-item"><img src="${image.url}" alt="${image.alt}"></li>`).join('');
 
-  const img = document.createElement('img');
-  img.src = image.url;
-  img.alt = image.alt;
+gallery.innerHTML = html;
 
-  listItem.appendChild(img);
-  gallery.appendChild(listItem);
-});

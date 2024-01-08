@@ -14,6 +14,8 @@ function getRandomHexColor() {
 
   function createBoxes() {
     boxesContainer.innerHTML = '';
+
+    
     const amount = input.valueAsNumber;
 
     if (isValidAmount(amount)) {

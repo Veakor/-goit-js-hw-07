@@ -13,6 +13,7 @@ function getRandomHexColor() {
   destroyButton.addEventListener('click', destroyBoxes);
 
   function createBoxes() {
+    boxesContainer.innerHTML = '';
     const amount = input.valueAsNumber;
 
     if (isValidAmount(amount)) {
@@ -29,14 +30,12 @@ function getRandomHexColor() {
       boxesContainer.append(...boxes);
       input.value = '';
     } else {
-      alert('Please enter a valid number between 1 and 100.');
+      const warning = document.createElement('p');
+      warning.textContent = 'Please enter a valid number between 1 and 100.';
+      document.body.appendChild(warning);
+  
+      setTimeout(() => {
+        warning.remove();
+      }, 2000);
     }
-  }
-
-  function destroyBoxes() {
-    boxesContainer.innerHTML = '';
-  }
-
-  function isValidAmount(amount) {
-    return Number.isInteger(amount) && amount >= 1 && amount <= 100;
   }
